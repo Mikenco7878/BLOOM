@@ -34,22 +34,6 @@ Website: `http://localhost:3000` · Quản trị: `http://localhost:3000/admin`.
 
 `admin:create` hỏi thông tin và mật khẩu kín; không có tài khoản mặc định. Đăng nhập → upload ảnh → sửa trang → lưu nháp → xem trước → xuất bản. CLI cũng hỗ trợ reset tài khoản đã có sau khi xác nhận `RESET`.
 
-## Deploy Render
-
-Trong Render chọn **New → Blueprint**, kết nối repository và dùng [render.yaml](render.yaml). Blueprint cấu hình Node Web Service, PostgreSQL, domain HTTPS, secret phiên và health check; nhập ba biến `CLOUDINARY_*` khi được hỏi. Khi dùng domain riêng, cập nhật `SITE_URL` theo domain chính thức.
-
-Mẫu dùng Free cho demo. Chọn gói phù hợp và bật backup trước khi vận hành lâu dài; không sao chép database hoặc ảnh local lên Git. Storage production dùng Cloudinary. Xác minh proxy trước khi bật `TRUST_PROXY=true`.
-
-Tạo admin qua `npm run admin:create` với kết nối database production. Render Free không có Shell: dùng CLI local với External Database URL có TLS và tạm cho phép IP của bạn kết nối DB. Giữ thông tin kết nối trong file env được ignore; đặt `ADMIN_EMAIL`, `ADMIN_NAME`, `ADMIN_PASSWORD` trống để CLI hỏi thông tin mới. Đóng truy cập DB ngoài sau khi tạo admin và không giữ `ADMIN_PASSWORD` trong env deploy.
-
-## Kiểm tra
-
-```sh
-npm run lint
-npm run format:check
-npm run build
-npm run test:security
-```
 
 `test:security` cần Chromium (`npx playwright install chromium`); tự tạo và dọn database kiểm thử riêng. `npm test` và `npm run test:e2e` cần database kiểm thử đã migrate/seed. Kiểm tra env deploy bằng `npm run deploy:check -- --database`. Trên PowerShell chặn `npm.ps1`, dùng `npm.cmd`.
 
