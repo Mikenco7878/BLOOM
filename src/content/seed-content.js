@@ -106,7 +106,7 @@ const page = (title, slug, navLabel, sections, navOrder, showInNav = true) => ({
   navLabel,
   showInNav,
   navOrder,
-  seoTitle: `${title} | BLOOM`,
+  seoTitle: slug ? `${title} | BLOOM` : 'BLOOM',
   seoDescription:
     sections[0].data.description ||
     'BLOOM — Dự án viên nén từ xơ dừa của EXE101 Group 1, FPT University.',

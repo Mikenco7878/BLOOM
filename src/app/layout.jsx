@@ -19,7 +19,7 @@ const headingFont = Lora({
 
 export const metadata = {
   metadataBase: new URL(process.env.SITE_URL || 'http://localhost:3000'),
-  title: { default: 'BLOOM — Từ xơ dừa, nảy mầm giá trị mới', template: '%s' },
+  title: { default: 'BLOOM', template: '%s' },
   description: 'BLOOM phát triển viên nén từ xơ dừa. Dự án EXE101 Group 1 — FPT University.',
   icons: { icon: '/brand/logo-placeholder.svg' },
 };

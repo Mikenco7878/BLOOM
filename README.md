@@ -32,8 +32,6 @@ Nếu chưa có PostgreSQL, chạy `npm run db:local` trước khi tạo `.env`;
 
 Website: `http://localhost:3000` · Quản trị: `http://localhost:3000/admin`.
 
-
-
 `test:security` cần Chromium (`npx playwright install chromium`); tự tạo và dọn database kiểm thử riêng. `npm test` và `npm run test:e2e` cần database kiểm thử đã migrate/seed. Kiểm tra env deploy bằng `npm run deploy:check -- --database`. Trên PowerShell chặn `npm.ps1`, dùng `npm.cmd`.
 
 Hình ảnh ban đầu là minh họa. Nhóm cần duyệt ảnh thật, thông tin liên hệ và mô tả sản phẩm trước khi công bố. Thông tin bản quyền thư viện được giữ trong [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
