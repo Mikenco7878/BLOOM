@@ -120,7 +120,7 @@ const page = (title, slug, navLabel, sections, navOrder, showInNav = true) => ({
 
 export const seedPages = [
   page(
-    'Từ xơ dừa, nảy mầm giá trị mới',
+    'BLOOM',
     '',
     'Trang chủ',
     [
