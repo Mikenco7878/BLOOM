@@ -1,0 +1,47 @@
+.section {
+  background: #f0f1e8;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.2fr;
+  gap: 4rem;
+}
+.list details {
+  border-bottom: 1px solid #cbd5c2;
+  padding-block: 1.2rem;
+}
+.list details:first-child {
+  border-top: 1px solid #cbd5c2;
+}
+.list summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--color-primary);
+  font-size: 1rem;
+  list-style: none;
+}
+.list summary::-webkit-details-marker {
+  display: none;
+}
+.list summary svg {
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+  transition: transform 0.2s;
+}
+.list details[open] svg {
+  transform: rotate(45deg);
+}
+.list p {
+  padding-top: 1rem;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 1rem;
+}
+@media (max-width: 700px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

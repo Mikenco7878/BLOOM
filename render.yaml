@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# Free plans are for staging/demo; review plans before a public launch.
+services:
+  - type: web
+    name: bloom-web
+    runtime: node
+    plan: free
+    region: singapore
+    branch: main
+    autoDeployTrigger: checksPass
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm run deploy:check && npm run db:migrate && npm run db:seed && npm run start -- --hostname 0.0.0.0
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bloom-db
+          property: connectionString
+      - key: SITE_URL
+        fromService:
+          type: web
+          name: bloom-web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: STORAGE_PROVIDER
+        value: cloudinary
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      # Enable only after verifying Render's proxy header handling on staging.
+      - key: TRUST_PROXY
+        value: 'false'
+
+databases:
+  - name: bloom-db
+    databaseName: bloom
+    user: bloom
+    plan: free
+    region: singapore
+    postgresMajorVersion: '18'
+    ipAllowList: []

@@ -1,0 +1,46 @@
+.section {
+  background: #e8eddf;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+.card {
+  background: #f8f9f1;
+  border: 1px solid #d5dfc9;
+  border-radius: 6px 36px 6px 6px;
+  padding: 2.3rem;
+}
+.card > svg {
+  margin-bottom: 2rem;
+  color: #69834f;
+}
+.label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #697d5b;
+  margin-bottom: 0.8rem;
+}
+.card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+}
+.card p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: 1.8rem;
+  }
+  .card > svg {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,17 @@
+.text {
+  display: inline;
+  animation: soften 0.55s ease-out both;
+}
+@keyframes soften {
+  from {
+    filter: blur(2px);
+  }
+  to {
+    filter: blur(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .text {
+    animation: none;
+  }
+}

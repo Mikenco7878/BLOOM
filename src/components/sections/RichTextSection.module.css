@@ -1,0 +1,23 @@
+.section {
+  background: #f0f1e8;
+}
+.content {
+  max-width: 850px;
+  text-align: center;
+}
+.content h2 {
+  white-space: pre-line;
+}
+.content p {
+  color: var(--color-muted);
+  line-height: 1.95;
+  font-size: 1rem;
+}
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  object-fit: cover;
+  margin-top: 2rem;
+  border-radius: var(--radius-card);
+}

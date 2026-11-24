@@ -1,0 +1,22 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+!.env.production.example
+.data/
+coverage/
+test-results/
+playwright-report/
+*.log
+*.tsbuildinfo
+.DS_Store
+.vercel/
+.render/
+*.pem
+*.key
+
+# Project introduction is the only Markdown document included in the repository.
+*.md
+!/README.md
+/docs/

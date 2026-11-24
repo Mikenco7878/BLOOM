@@ -1,0 +1,118 @@
+.section {
+  background: var(--color-cream);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.grid figure {
+  margin: 0;
+  min-width: 0;
+}
+.grid figure > button {
+  position: relative;
+  display: block;
+  width: 100%;
+  background: #dce3cd;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.image {
+  width: 100%;
+  aspect-ratio: 1/1.08;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.grid button:hover .image {
+  transform: scale(1.04);
+}
+.grid figcaption {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  padding-top: 0.75rem;
+}
+.zoom {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  height: 40px;
+  width: 40px;
+  background: #fcfcf1e6;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  color: var(--color-primary);
+}
+.empty {
+  color: var(--color-muted);
+  border: 1px dashed var(--color-border);
+  padding: 2rem;
+  border-radius: var(--radius-card);
+}
+.dialog {
+  padding: 1rem;
+  width: min(850px, 94vw);
+  max-height: 94vh;
+  border: 1px solid #d6dfca;
+  border-radius: 16px;
+  background: var(--color-cream);
+  color: var(--color-primary);
+}
+.dialog::backdrop {
+  background: #132b22ce;
+  backdrop-filter: blur(5px);
+}
+.dialogContent {
+  position: relative;
+}
+.close {
+  position: absolute;
+  z-index: 1;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  background: var(--color-cream);
+  box-shadow: 0 2px 10px #20312815;
+}
+.fullImage {
+  width: 100%;
+  height: min(65vh, 650px);
+  object-fit: contain;
+}
+.dialogContent p {
+  text-align: center;
+  margin: 0.8rem 0.5rem;
+  font-size: 0.875rem;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.controls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-sage);
+  display: grid;
+  place-content: center;
+}
+.controls span {
+  font-size: 0.875rem;
+}
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .image {
+    max-height: 420px;
+  }
+}

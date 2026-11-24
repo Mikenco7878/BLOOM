@@ -1,0 +1,18 @@
+.reveal {
+  animation: settle 0.55s ease-out both;
+}
+@keyframes settle {
+  from {
+    opacity: 0.75;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}

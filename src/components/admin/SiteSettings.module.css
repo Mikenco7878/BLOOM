@@ -1,0 +1,50 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 1.5rem;
+  align-items: start;
+  max-width: 1150px;
+}
+.layout > div {
+  display: grid;
+  gap: 1.5rem;
+}
+.hint {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+.aside {
+  background: #edf2e6;
+  border: 1px solid #d5dfcb;
+  padding: 1.5rem;
+  border-radius: 12px;
+  position: sticky;
+  top: 1.5rem;
+}
+.aside h2 {
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-primary);
+  margin: 0 0 1rem;
+}
+.aside p {
+  color: #5d6b55;
+  font-size: 0.8125rem;
+  line-height: 1.9;
+  margin: 0 0 1rem;
+}
+.aside button,
+.aside a {
+  width: 100%;
+}
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .aside {
+    position: static;
+  }
+}

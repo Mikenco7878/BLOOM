@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1100" viewBox="0 0 1000 1100">
+<defs>
+<radialGradient id="bg"><stop stop-color="#edf1df"/><stop offset="1" stop-color="#d8e1c8"/></radialGradient>
+<linearGradient id="leaf" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#244b2f"/><stop offset=".5" stop-color="#52713e"/><stop offset="1" stop-color="#8b9e58"/></linearGradient>
+<linearGradient id="leaf2" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#305633"/><stop offset="1" stop-color="#a6b36f"/></linearGradient>
+<linearGradient id="shell" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#af8356"/><stop offset=".4" stop-color="#87613e"/><stop offset="1" stop-color="#4d3928"/></linearGradient>
+<radialGradient id="soil"><stop stop-color="#8b6846"/><stop offset="1" stop-color="#493b2b"/></radialGradient>
+<filter id="shadow"><feGaussianBlur stdDeviation="22"/></filter>
+<filter id="fiber"><feTurbulence type="fractalNoise" baseFrequency=".085 .5" numOctaves="3" seed="9"/><feColorMatrix type="saturate" values="0"/><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+<clipPath id="clip"><path d="M276 688Q500 633 724 688L684 813Q660 918 500 933Q339 919 315 813Z"/></clipPath>
+</defs>
+<rect width="1000" height="1100" fill="url(#bg)"/>
+<circle cx="500" cy="471" r="315" fill="none" stroke="#bdcdaa" stroke-width="1"/>
+<circle cx="500" cy="471" r="351" fill="none" stroke="#c7d4b7" stroke-width="1" stroke-dasharray="2 8"/>
+<ellipse cx="511" cy="954" rx="225" ry="28" fill="#4b5434" opacity=".19" filter="url(#shadow)"/>
+<path d="M276 688Q500 633 724 688L684 813Q660 918 500 933Q339 919 315 813Z" fill="url(#shell)"/>
+<g clip-path="url(#clip)" opacity=".4" stroke="#dfbb85" fill="none" stroke-width="2"><path d="M250 700Q400 790 355 950M280 686Q430 786 395 965M330 680Q460 784 437 960M385 681Q490 786 475 962M440 680Q520 800 518 969M500 670Q551 800 557 953M560 670Q594 800 596 958M620 670Q633 820 633 948M680 670Q670 800 669 946M715 670Q710 800 710 928"/><path d="M200 748Q500 880 780 748M200 782Q500 920 780 782M200 815Q500 950 780 815"/></g>
+<ellipse cx="500" cy="689" rx="226" ry="68" fill="#c8a271"/>
+<ellipse cx="500" cy="685" rx="208" ry="53" fill="url(#soil)"/>
+<g stroke="#b89764" stroke-width="2" opacity=".7"><path d="m340 675 45 15m-25-27 30 23m40-29 20 48m18-34 45 25m-31-44 30 22m35 7 50 7m-30-38 11 28m25-12 37 11m15-1 30-12m-14 20 26 6m-222 15 25 14m45-8 34 11m39-8 20-8m-139-32-15 15m230-5 20-15"/></g>
+<path d="M501 685Q485 535 516 388Q538 294 528 199" stroke="#506841" stroke-width="12" stroke-linecap="round" fill="none"/>
+<path d="M510 496Q411 433 338 376" stroke="#4d6940" stroke-width="8" fill="none"/>
+<path d="M517 426Q601 349 663 322" stroke="#5b7646" stroke-width="8" fill="none"/>
+<path d="M524 327Q448 270 405 231" stroke="#6c834c" stroke-width="7" fill="none"/>
+<path d="M523 198C489 132 545 89 615 80C617 153 590 195 523 198Z" fill="url(#leaf2)"/>
+<path d="M523 198 596 100" stroke="#c0c990" stroke-width="2" fill="none"/>
+<path d="M515 352C389 370 303 298 302 192C425 192 501 241 515 352Z" fill="url(#leaf)"/>
+<path d="M515 352Q413 271 320 209" stroke="#a5b67a" stroke-width="2" fill="none"/>
+<path d="m405 267 3-38m34 62 8-42m-88-15 35-2m29 57-46 1m84 35-42 2" stroke="#90a367" stroke-width="1.5" fill="none" opacity=".7"/>
+<path d="M528 429C547 304 662 259 764 291C720 409 633 448 528 429Z" fill="url(#leaf2)"/>
+<path d="M528 429Q627 348 744 304" stroke="#c2cc91" stroke-width="2" fill="none"/>
+<path d="m602 371 12-42m28 18 17-43m-2 33 48 6m-102 27 49 10m-75 4 35 10" stroke="#aabd7b" stroke-width="1.5" fill="none" opacity=".7"/>
+<path d="M500 532C370 565 263 501 224 397C357 377 465 417 500 532Z" fill="url(#leaf)"/>
+<path d="M500 532Q361 472 246 410" stroke="#a6b37d" stroke-width="2" fill="none"/>
+<path d="m385 481-9-49m-35 29-5-44m30 55-51 15m100 5-45 14" stroke="#90a36b" stroke-width="1.5" fill="none" opacity=".7"/>
+<path d="M496 605C571 509 689 507 772 551C683 640 585 657 496 605Z" fill="url(#leaf)"/>
+<path d="M496 605Q634 573 748 558" stroke="#b2bf83" stroke-width="2" fill="none"/>
+<g fill="#e8eccf"><circle cx="225" cy="291" r="4"/><circle cx="766" cy="443" r="5"/><circle cx="691" cy="173" r="3"/></g>
+</svg>

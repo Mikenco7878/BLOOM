@@ -1,0 +1,57 @@
+body {
+  background: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: #c9dac0;
+  color: var(--color-primary);
+}
+h1,
+h2,
+h3 {
+  color: var(--color-primary);
+  line-height: 1.22;
+  font-weight: 500;
+}
+h1,
+h2 {
+  font-family: var(--font-heading);
+}
+h1 {
+  font-size: clamp(2.65rem, 5.5vw, 5.25rem);
+  letter-spacing: -0.05em;
+}
+h2 {
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  letter-spacing: -0.035em;
+}
+h3 {
+  font-size: 1.2rem;
+}
+p {
+  margin-bottom: 1rem;
+}
+button {
+  border: 0;
+}
+:focus-visible {
+  outline: 3px solid var(--color-earth);
+  outline-offset: 5px;
+}
+input,
+select,
+textarea {
+  min-width: 0;
+}
+select {
+  appearance: none;
+  background-image: url('/brand/chevron.svg');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.8rem;
+  padding-right: 2.5rem;
+}

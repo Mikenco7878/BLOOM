@@ -1,0 +1,56 @@
+{
+  "name": "bloom-cms",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.9"
+  },
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "prisma generate && next build --webpack",
+    "start": "next start",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:security": "node scripts/test-security.mjs",
+    "deploy:check": "node --env-file-if-exists=.env scripts/check-deploy.mjs",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "node --env-file-if-exists=.env prisma/seed.js",
+    "db:local": "node scripts/local-postgres.mjs",
+    "admin:create": "node --env-file-if-exists=.env scripts/create-admin.mjs",
+    "postinstall": "prisma generate"
+  },
+  "prisma": {
+    "seed": "node --env-file-if-exists=.env prisma/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.3",
+    "argon2": "^0.44.0",
+    "cloudinary": "^2.8.0",
+    "lucide-react": "^0.577.0",
+    "next": "16.4.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sharp": "^0.35.5",
+    "zod": "^4.3.0"
+  },
+  "overrides": {
+    "@prisma/config": {
+      "deepmerge-ts": "8.0.2",
+      "effect": "3.22.5"
+    }
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "embedded-postgres": "18.7.0-beta.19",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.4.6",
+    "prettier": "^3.8.0",
+    "prisma": "6.19.3",
+    "vitest": "^4.0.0"
+  }
+}

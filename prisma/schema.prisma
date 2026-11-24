@@ -1,0 +1,174 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PageStatus {
+  DRAFT
+  PUBLISHED
+  UNPUBLISHED
+}
+
+enum ContactStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+  SPAM
+}
+
+model AdminUser {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  passwordHash String
+  name         String
+  role         String         @default("ADMIN")
+  isActive     Boolean        @default(true)
+  createdAt    DateTime       @default(now())
+  sessions     AdminSession[]
+  auditLogs    AuditLog[]
+}
+
+model AdminSession {
+  id          String    @id @default(cuid())
+  adminUserId String
+  tokenHash   String    @unique
+  expiresAt   DateTime
+  createdAt   DateTime  @default(now())
+  revokedAt   DateTime?
+  adminUser   AdminUser @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+
+  @@index([expiresAt])
+}
+
+model Page {
+  id                  String         @id @default(cuid())
+  title               String
+  slug                String         @unique
+  type                String         @default("STANDARD")
+  homeKey             String?        @unique
+  status              PageStatus     @default(DRAFT)
+  publishedSlug       String?        @unique
+  draftRevisionId     String?        @unique
+  publishedRevisionId String?        @unique
+  draftRevision       PageRevision?  @relation("DraftPointer", fields: [draftRevisionId], references: [id], onDelete: SetNull)
+  publishedRevision   PageRevision?  @relation("PublishedPointer", fields: [publishedRevisionId], references: [id], onDelete: SetNull)
+  revisions           PageRevision[] @relation("PageRevisions")
+  revisionCounter     Int            @default(0)
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+  publishedAt         DateTime?
+  deletedAt           DateTime?
+
+  @@index([status, deletedAt])
+}
+
+model PageRevision {
+  id             String   @id @default(cuid())
+  pageId         String
+  revisionNumber Int
+  contentJson    Json
+  createdBy      String?
+  createdAt      DateTime @default(now())
+  isPublished    Boolean  @default(false)
+  page           Page     @relation("PageRevisions", fields: [pageId], references: [id], onDelete: Cascade)
+  draftOf        Page?    @relation("DraftPointer")
+  publishedOf    Page?    @relation("PublishedPointer")
+
+  @@unique([pageId, revisionNumber])
+}
+
+model MediaAsset {
+  id           String       @id @default(cuid())
+  provider     String
+  providerKey  String
+  url          String
+  thumbnailUrl String?
+  width        Int
+  height       Int
+  bytes        Int
+  mimeType     String
+  filename     String
+  altText      String       @default("")
+  caption      String       @default("")
+  createdAt    DateTime     @default(now())
+  usages       MediaUsage[]
+
+  @@unique([provider, providerKey])
+}
+
+model MediaUsage {
+  id         String     @id @default(cuid())
+  mediaId    String
+  entityType String
+  entityId   String
+  fieldKey   String
+  media      MediaAsset @relation(fields: [mediaId], references: [id], onDelete: Restrict)
+
+  @@unique([mediaId, entityType, entityId, fieldKey])
+  @@index([entityType, entityId])
+}
+
+model ContactLead {
+  id           String        @id @default(cuid())
+  name         String
+  email        String
+  phone        String        @default("")
+  subject      String
+  message      String
+  consentAt    DateTime
+  sourcePath   String        @default("/lien-he")
+  status       ContactStatus @default(NEW)
+  internalNote String        @default("")
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model SiteSetting {
+  id               String   @id @default("site")
+  siteName         String   @default("BLOOM")
+  tagline          String   @default("")
+  logoMediaId      String?
+  faviconMediaId   String?
+  email            String   @default("")
+  phone            String   @default("")
+  facebookUrl      String   @default("")
+  footerText       String   @default("")
+  defaultOgImageId String?
+  updatedAt        DateTime @updatedAt
+}
+
+model AuditLog {
+  id           String     @id @default(cuid())
+  adminUserId  String?
+  action       String
+  entityType   String
+  entityId     String
+  summary      String
+  metadataJson Json?
+  createdAt    DateTime   @default(now())
+  adminUser    AdminUser? @relation(fields: [adminUserId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt])
+}
+
+model Redirect {
+  id         String   @id @default(cuid())
+  oldPath    String   @unique
+  newPath    String
+  statusCode Int      @default(301)
+  createdAt  DateTime @default(now())
+}
+
+model RateLimitBucket {
+  key       String   @id
+  count     Int
+  expiresAt DateTime
+
+  @@index([expiresAt])
+}

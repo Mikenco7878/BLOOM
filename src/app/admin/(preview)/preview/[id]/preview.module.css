@@ -1,0 +1,15 @@
+.banner {
+  background: #1f4d3a;
+  color: #f8f6ef;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8125rem;
+  border-bottom: 3px solid #b0be87;
+}
+.banner a {
+  color: #fff;
+  font-weight: 600;
+}

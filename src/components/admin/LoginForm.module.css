@@ -1,0 +1,115 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fafbf7;
+}
+.story {
+  background: #1f4d3a;
+  color: #f8f6ef;
+  padding: clamp(2rem, 5vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5rem;
+  min-height: 100vh;
+  background-image: radial-gradient(ellipse at 110% 90%, #668b5670, transparent 55%);
+}
+.logo {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-size: 2.7rem;
+  font-weight: 600;
+  letter-spacing: -0.07em;
+  color: inherit;
+  text-decoration: none;
+}
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  color: #c1d1ac;
+}
+.story h1 {
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  font-family: var(--font-heading, Georgia, serif);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+  margin: 1.5rem 0;
+}
+.story div > p:last-child {
+  color: #d0deca;
+  max-width: 400px;
+  line-height: 1.8;
+}
+.story small {
+  font-size: 0.75rem;
+  color: #c1cfb9;
+}
+.formArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+.form {
+  width: 100%;
+  max-width: 380px;
+}
+.lock {
+  display: grid;
+  place-items: center;
+  height: 56px;
+  width: 56px;
+  background: #e9f0e5;
+  border-radius: 15px;
+  color: #1f4d3a;
+  margin-bottom: 2rem;
+}
+.form h2 {
+  font-size: 1.85rem;
+  letter-spacing: -0.04em;
+  margin: 0.7rem 0;
+}
+.description,
+.help {
+  font-size: 0.875rem;
+  color: #67736b;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.form button {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.help {
+  font-size: 0.8125rem;
+  margin-top: 1.5rem;
+}
+.back {
+  color: #1f4d3a;
+  font-size: 0.875rem;
+}
+@media (max-width: 760px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+  .story {
+    min-height: auto;
+    padding: 2rem;
+    gap: 2.5rem;
+  }
+  .story h1 {
+    font-size: 2rem;
+  }
+  .story small {
+    display: none;
+  }
+  .story div > p:last-child {
+    display: none;
+  }
+  .formArea {
+    padding: 2rem 1.5rem 3rem;
+  }
+}
