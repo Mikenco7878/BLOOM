@@ -32,7 +32,6 @@ Nếu chưa có PostgreSQL, chạy `npm run db:local` trước khi tạo `.env`;
 
 Website: `http://localhost:3000` · Quản trị: `http://localhost:3000/admin`.
 
-`admin:create` hỏi thông tin và mật khẩu kín; không có tài khoản mặc định. Đăng nhập → upload ảnh → sửa trang → lưu nháp → xem trước → xuất bản. CLI cũng hỗ trợ reset tài khoản đã có sau khi xác nhận `RESET`.
 
 
 `test:security` cần Chromium (`npx playwright install chromium`); tự tạo và dọn database kiểm thử riêng. `npm test` và `npm run test:e2e` cần database kiểm thử đã migrate/seed. Kiểm tra env deploy bằng `npm run deploy:check -- --database`. Trên PowerShell chặn `npm.ps1`, dùng `npm.cmd`.
